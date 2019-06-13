@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <title>Greenfox Takeout</title>
+</head>
+<body class="container">
+    <h1>Welcome to Greenfox Takeout!</h1>
+    <p>Please enter your info and choose your meal</p>
+    <form action="#" th:action="@{/order}" th:method="post" th:object="${orderDTO}">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" th:field="*{name}" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" th:field="*{address}" required>
+        </div>
+        <fieldset>
+            <legend>Bases</legend>
+            <div class="form-check">
+                <input type="radio" th:field="*{base}" class="form-check-input" value="rice noodles">
+                <label class="form-check-label" for="base1">Rice noodles</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" th:field="*{base}" class="form-check-input" value="egg noodles">
+                <label class="form-check-label" for="base2">Egg noodles</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" th:field="*{base}" class="form-check-input" value="white rice">
+                <label class="form-check-label" for="base3">White rice</label>
+            </div>
+        </fieldset>
+           <fieldset>
+               <legend><label for="topping">Toppings</label></legend>
+                <select class="custom-select" th:field="*{topping}">
+                    <option value="chicken ">Chicken</option>
+                    <option value="beef ">Beef</option>
+                    <option value="smoked tofu">Smoked Tofu</option>
+                </select>
+           </fieldset>
+        <button type="submit" class="btn btn-success">Order</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+    </form>
+</body>
+</html>

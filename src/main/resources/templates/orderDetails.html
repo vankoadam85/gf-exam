@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments.html::head_boilerplate">
+    </th:block>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="container">
+<h1>Order details</h1>
+<ul class="list-group" th:object="${order}">
+    <li class="list-group-item" th:text="|Name: *{name}|"></li>
+    <li class="list-group-item" th:text="|Address: *{address}|"></li>
+    <li class="list-group-item" th:text="|Base: *{base}|"></li>
+    <li class="list-group-item" th:text="|Topping: *{topping}|"></li>
+    <li class="list-group-item" th:text="|Status: *{status}|"></li>
+</ul>
+<div class="text-center">
+    <a href="/" class="btn btn-primary">Back to the main page</a>
+</div>
+</body>
+</html>
